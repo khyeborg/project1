@@ -1,15 +1,155 @@
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
-		<meta charset="utf-8">
-		<title>All Star Code</title>
+		<title>About Me</title>
+        <link type="text/css" href="styles.css" rel="stylesheet" />
 	</head>
 	<body>
-		<h1>Summer Intensive Technical Assessment</h1>
+		<div id="container">
+			<div id="leftcolumn">
+				<br><br><br><br>
+                <ul>
+                	<li class="navlink active" data-info="about_me">About Me</li>
+                    <li class="navlink" data-info="teaching">Teaching</li>
+                    <li class="navlink" data-info="gallery">Gallery</li>
+                </ul>
+            </div> 
+        	<div id="rightcolumn">
+        		<div id="header">
+        			Khye Borg Liew
+        		</div>
+        		<div id="about_me" class="content">
+                    <p>Hi, I'm Khye!</p><br>
+                    <div id="me"><a href="https://www.facebook.com/khyeborg" target="_blank"><img id="me_image" src="images/me.jpg" width="250px"></a></div>
+                    <br>
 
-		<ul>
-			<li><a href="project1/index.html">Project #1</a></li>
-			<li><a href="project2/testRunner.html">Project #2</a></li>
-		</ul>
+                    <div>
+                        <p class="title">Education Background</p>
+                        <hr>
+                        <div>Educational Technology (MA)<br>
+                        Columbia University<br>
+                        Teachers College<br></div>
+                        <br>
+                        <div>Chemistry (BS) & Math and Computer Science Education<br>
+                        New York University<br>
+                        College of Arts and Sciences<br></div>
+                    </div>
+                    <br>
+                    <div>
+                        <p class="title">Passions</p>
+                        <hr>
+                        <ul>
+                            <li>Teaching</li>
+                            <li>Performing</li>
+                            <li>Interacting with animals</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div>
+                        <p class="title">Contact</p>
+                        <hr>
+                        <div>
+                            e: kbl274 [-at-] nyu [-dot-] edu <br>
+                            p: +1.646.525.9204
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div>
+                        <a href="resume.pdf" target="_blank">Click here for my complete resume</a>
+                    </div>
+
+        		</div>
+                <div id="teaching" class="content hidden">
+                    <p class="title2">Teaching Experience:</p>
+                    <ul>
+                        <li>Private tutor for underclassmen</li>
+                        <li>Malaysian language substitute teacher</li>
+                        <li>Choir instructor</li>
+                        <li>Lead instructor for the NYU Chemistry Honor Society</li>
+                        <li>Computer science tutor at NYU</li>
+                        <li>Teaching Assistant for high school CS summer program at NYU</li>
+                    </ul>
+                    <br>
+                    <p class="title2">Career Goals:</p>
+                    <ul>
+                        <li>Become a computer science high school teacher</li>
+                        <li>Become a professor in computer science</li>
+                    </ul>
+
+                </div>
+                <div id="gallery" class="content hidden">
+                    <div id="gallery1">
+                        <div class="photos"><img class="photosimg" src="images/a.png" width="205px" data-info="<i>@Washington Square Park</i>"></div>
+                        <div class="photos"><img class="photosimg" src="images/b.png" width="205px" data-info="<i>#iGraduated!</i>"></div>
+                        <div class="photos"><img class="photosimg" src="images/c.png" width="205px" data-info="Me and my FAVORITE professor - <i>Prof. Craig Kapp</i>"></div>
+                    </div>
+
+                    <div id="gallery2">
+                        <div class="photos"><img class="photosimg" src="images/d.png" width="330px" data-info="Performing '<i>All I See Is You</i>' at the <i>9/11 Memorial Service</i>"></div>
+                        <div class="photos"><img class="photosimg" src="images/e.png" width="295px" data-info="New York University Singers | Spring Concert 2019"></div>
+                    </div>
+
+                    <div id="gallery3">
+                        Hover over the images for more info
+                    </div>
+                </div>
+        	</div>
+        </div>
+
+        <script>
+
+        	// get references 
+            var navlinkArray = document.getElementsByClassName("navlink");
+            var contentArray = document.getElementsByClassName("content");
+            var photoArray = document.getElementsByClassName("photosimg");
+            var captionDiv = document.getElementById("gallery3");
+            captionDiv.style["font-style"] = "italic";
+
+            // set up click events for navlinks
+            for (var i = 0; i < navlinkArray.length; i++) {
+            	navlinkArray[i].addEventListener('click', function(event) {
+
+                    // remove active class from all navlinks and add hidden class to all contents
+                    for (var j = 0; j < navlinkArray.length; j++) {
+                        navlinkArray[j].classList.remove("active");
+                        contentArray[j].classList.add("hidden");
+                    }
+
+                    // only add the active class to the navlink clicked and only remove hidden class of the corresponding content page
+                    event.currentTarget.classList.add("active");
+                    document.getElementById(event.currentTarget.dataset.info).classList.remove("hidden");
+                });
+            }
+
+            // gallery caption
+            for (var i = 0; i < photoArray.length; i++) {
+                photoArray[i].addEventListener('mouseover', function(event) {
+                    captionDiv.innerHTML = event.currentTarget.dataset.info;
+                    captionDiv.style["font-style"] = "normal";
+                });
+
+                photoArray[i].addEventListener('mouseout', function(event) {
+                    captionDiv.innerHTML = "Hover over the images for more info";
+                    captionDiv.style["font-style"] = "italic";
+                });
+            }
+
+           
+
+        </script>       
+
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+	
